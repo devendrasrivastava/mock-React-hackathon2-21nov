@@ -57,7 +57,10 @@ export default function SignInSide() {
                 localStorage.setItem("jwt_token",data.access_token)  //use session storage to remove token on closure of browser
                 localStorage.setItem("userName", JSON.stringify(data.userData)) //to get data of user in the state, we can now print user details when they log in
                 navigate("/")
-                
+               
+            }
+            else{
+              alert("invalid credentials")
             }
         })
         },

@@ -49,6 +49,8 @@ const formik = useFormik({
             })
             .catch((e) => console.log("Catch block executed"))
             .finally(console.log("Finally executed"))
+            alert("user has been registered successfully")
+            navigate("/login")
     },
     validationSchema: yup.object().shape({
             firstname: yup.string()
@@ -94,10 +96,7 @@ const formik = useFormik({
     })
 })
 
-// function customMe(){
 
-//     alert("details have been submitted");
-// }
  
   return (
     <div className="container user-signup">

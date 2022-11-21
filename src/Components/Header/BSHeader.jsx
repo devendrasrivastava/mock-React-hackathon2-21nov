@@ -68,7 +68,7 @@ export default function Header() {
             {username.firstname}
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/" onClick={logout}>Logout</a></li>
+            <li><a class="dropdown-item" href="/login" onClick={logout}>Logout</a></li>
             {/* <li><a class="dropdown-item" href="/">Profile</a></li> */}
 
           </ul>
