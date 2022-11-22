@@ -8,26 +8,15 @@ import CardHeader from '@mui/material/CardHeader';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import StarIcon from '@mui/icons-material/StarBorder';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
 import TitlebarImageList from '../ImageList/ImageList';
+import { useNavigate } from "react-router-dom";
+import {useEffect} from 'react'
+import './Services.css'
 
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        NatWest
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const tiers = [
   {
@@ -65,7 +54,32 @@ const tiers = [
 
 
 function PricingContent() {
+
+  const navigate = useNavigate();  //variable to protect the page
+
+  useEffect(() => {                                         //coding start to protect the page
+    fetch("http://localhost:9000/auth/isAuthenticated", {
+        method: "POST",
+        headers: {
+            "Authorization": `Bearer ${localStorage.getItem("jwt_token")}`
+        }
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            // if(data.status===401){
+            //     navigate("/login")
+            // }
+
+            if (!data.isAuthenticated) {
+                navigate("/login")
+            }
+        })
+}, [])
+
+
   return (
+    <div className="container user-services">
     <React.Fragment>
       <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
       <CssBaseline />
@@ -84,11 +98,11 @@ function PricingContent() {
         <Typography variant="h5" align="center" color="text.secondary" component="p">
         How our services are running and updates on planned maintenance
         </Typography>
-        
+        <TitlebarImageList/>
       </Container>
       
       <div className="container">
-      <TitlebarImageList/>
+      
       </div>
       {/* End hero unit */}
       <Container maxWidth="md" component="main">
@@ -158,7 +172,7 @@ function PricingContent() {
         </Grid>
       </Container>
     </React.Fragment>
-    
+    </div>
   );
 }
 

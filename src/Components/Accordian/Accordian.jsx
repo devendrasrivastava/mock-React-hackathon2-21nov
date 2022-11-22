@@ -14,11 +14,11 @@ export default function SimpleAccordion() {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Call Us</Typography>
+          <Typography style={{color: "#42145F"}}><h5> Call Us </h5></Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            1800 270 1818
+          <Typography style={{color: "#42145F"}}>
+           <h4> 1800 270 1818 </h4> 
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -28,11 +28,11 @@ export default function SimpleAccordion() {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography>Email Us</Typography>
+          <Typography style={{color: "#42145F"}}><h5> Email Us </h5></Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-           sevices@Natwest.com
+          <Typography style={{color: "#42145F"}}>
+          <h4> sevices@Natwest.com</h4>
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -42,10 +42,10 @@ export default function SimpleAccordion() {
           aria-controls="panel3a-content"
           id="panel3a-header"
         >
-          <Typography>Chat with us</Typography>
+          <Typography style={{color: "#42145F"}}><h5> Chat with us</h5></Typography>
         </AccordionSummary>
-        <Typography>
-           Our Chat Sevice will contact you shortly.
+        <Typography style={{color: "#42145F"}}>
+          <h4> Our Chat Sevice will contact you shortly.</h4>
           </Typography>
       </Accordion>
     </div>

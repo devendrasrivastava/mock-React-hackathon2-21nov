@@ -8,9 +8,9 @@ import InfoIcon from '@mui/icons-material/Info';
 
 export default function TitlebarImageList() {
   return (
-    <ImageList sx={{ width: 1100, height: 450 }}>
+    <ImageList sx={{ width: 600, height: 450 }}>
       <ImageListItem key="Subheader" cols={2}>
-        <ListSubheader component="div">December</ListSubheader>
+        
       </ImageListItem>
       {itemData.map((item) => (
         <ImageListItem key={item.img}>
@@ -40,27 +40,27 @@ export default function TitlebarImageList() {
 
 const itemData = [
   {
-    img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
-    title: 'Breakfast',
-    author: '@bkristastucchio',
+    img: 'https://source.unsplash.com/900x600/?school',
+    title: 'Education',
+    author: '@EducationLoan',
     rows: 2,
     cols: 2,
     featured: true,
   },
   {
-    img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
-    title: 'Burger',
-    author: '@rollelflex_graphy726',
+    img: 'https://source.unsplash.com/900x600/?kids',
+    title: 'Saving Account for Kids',
+    author: '@KidsSaverAccount',
   },
   {
-    img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
-    title: 'Camera',
-    author: '@helloimnik',
+    img: 'https://source.unsplash.com/900x600/?office',
+    title: 'Businesses',
+    author: '@CommercialLoan',
   },
   {
-    img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
-    title: 'Coffee',
-    author: '@nolanissac',
+    img: 'https://source.unsplash.com/900x600/?bank',
+    title: 'Mortgage',
+    author: '@FlexiEMIMortgage',
     cols: 2,
   },
      

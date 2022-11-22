@@ -1,5 +1,4 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
 import CameraIcon from '@mui/icons-material/PhotoCamera';
 import Card from '@mui/material/Card';
@@ -10,34 +9,50 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import SimpleAccordion from '../Accordian/Accordian';
+import { useNavigate } from "react-router-dom";
+import {useEffect} from 'react'
+import './ContactUs.css'
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        NatWest.com
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const cards = [1];
 
 const theme = createTheme();
 
 export default function ContactUs() {
+
+  const navigate = useNavigate();  //variable to protect the page
+
+  useEffect(() => {                                         //coding start to protect the page
+    fetch("http://localhost:9000/auth/isAuthenticated", {
+        method: "POST",
+        headers: {
+            "Authorization": `Bearer ${localStorage.getItem("jwt_token")}`
+        }
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            // if(data.status===401){
+            //     navigate("/login")
+            // }
+
+            if (!data.isAuthenticated) {
+                navigate("/login")
+            }
+        })
+}, [])
+
+
   return (
+    
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <div className="container user-contactus">
       <main>
         {/* Hero unit */}
         <Box
@@ -109,10 +124,11 @@ Call Telephone Banking Call us on: 03457 888 444. Overseas: 0345 030 3605. You c
           </Grid>
         </Container>
       </main>
-
+      </div>
 <div className="container">
 <SimpleAccordion/>
 </div>
+
 
       {/* Footer */}
       <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
@@ -125,7 +141,7 @@ Call Telephone Banking Call us on: 03457 888 444. Overseas: 0345 030 3605. You c
           color="text.secondary"
           component="p"
         >
-          <Copyright/> 2022 All Rights reserved.
+          
         </Typography>
         
       </Box>

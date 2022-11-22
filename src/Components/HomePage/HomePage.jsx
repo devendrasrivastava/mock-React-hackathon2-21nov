@@ -5,9 +5,7 @@ import './HomePage.css'
 export default function HomePage() {
   return (
     <div>
-        
-        <div class="container user-carousel my-4">
-        <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="false">
+        <div id="carouselExampleCaptions" class="carousel slide carousel-fade user-carousel" data-bs-ride="false">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                     aria-current="true" aria-label="Slide 1"></button>
@@ -50,7 +48,7 @@ export default function HomePage() {
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-    </div>
+    
 
 <ButtonBases/>
     </div>

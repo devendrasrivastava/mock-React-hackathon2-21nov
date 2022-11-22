@@ -117,9 +117,9 @@ function PricingContent() {
                 ))}
               </ul>
             </Grid>
+            
           ))}
         </Grid>
-        <Copyright sx={{ mt: 5 }} />
         <div class="col-md-4 col-sm-6 col-xs-12">
             <ul class="social-icons">
               <li><a class="facebook" href="https://www.facebook.com/" target={'_blank'}><i class="fa fa-facebook"></i></a></li>
@@ -128,6 +128,8 @@ function PricingContent() {
               <li><a class="linkedin" href="https://www.linkedin.com/" target={'_blank'}><i class="fa fa-linkedin"></i></a></li>   
             </ul>
           </div>
+        <Copyright sx={{ mt: 5 }} />
+        
       </Container>
       
       {/* End footer */}

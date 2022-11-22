@@ -4,12 +4,40 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import './AboutUs.css'
+import { useNavigate } from "react-router-dom";
+import {useEffect} from 'react'
 
 export default function ActionAreaCard() {
+
+  const navigate = useNavigate();  //variable to protect the page
+
+  useEffect(() => {                                         //coding start to protect the page
+    fetch("http://localhost:9000/auth/isAuthenticated", {
+        method: "POST",
+        headers: {
+            "Authorization": `Bearer ${localStorage.getItem("jwt_token")}`
+        }
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            // if(data.status===401){
+            //     navigate("/login")
+            // }
+
+            if (!data.isAuthenticated) {
+                navigate("/login")
+            }
+        })
+}, [])
+
+
+
   return (
-    <div className="container my-4">
+    <div className="container user-aboutus">
         <div className="row">
-            <div className="col-12 col-md-9 col-lg-6 col-xl-3">
+            <div className="col-12 col-md-6 col-lg-4 col-xl-3">
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
         <CardMedia
@@ -30,7 +58,7 @@ export default function ActionAreaCard() {
     </Card>    
     </div>
 
-    <div className="col-12 col-md-9 col-lg-6 col-xl-3">
+    <div className="col-12 col-md-6 col-lg-4 col-xl-3">
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
         <CardMedia
@@ -51,7 +79,7 @@ export default function ActionAreaCard() {
     </Card>    
     </div>
 
-    <div className="col-12 col-md-9 col-lg-6 col-xl-3">
+    <div className="col-12 col-md-6 col-lg-4 col-xl-3">
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
         <CardMedia
@@ -72,7 +100,7 @@ export default function ActionAreaCard() {
     </Card>    
     </div>
 
-    <div className="col-12 col-md-9 col-lg-6 col-xl-3">
+    <div className="col-12 col-md-6 col-lg-4 col-xl-3">
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
         <CardMedia
@@ -96,70 +124,70 @@ export default function ActionAreaCard() {
     </div>
 
     <div className="row">
-            <div className="col-12 col-md-9 col-lg-6 col-xl-3">
+            <div className="col-12 col-md-6 col-lg-4 col-xl-3">
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
         <CardMedia
           component="img"
           height="140"
-          image="https://source.unsplash.com/900x600/?students"
+          image="https://source.unsplash.com/900x600/?office"
           alt="green iguana"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Education
+          Annual Report and Accounts 2021
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Helping out students for their higher studies. we have a full catalogue of student loans to suit your needs.
+          We champion potential, helping people, families and businesses to thrive. Find out more in our Annual Report and Accounts.
           </Typography>
         </CardContent>
       </CardActionArea>
     </Card>    
     </div>
 
-    <div className="col-12 col-md-9 col-lg-6 col-xl-3">
+    <div className="col-12 col-md-6 col-lg-4 col-xl-3">
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
         <CardMedia
           component="img"
           height="140"
-          image="https://source.unsplash.com/900x600/?cards"
+          image="https://source.unsplash.com/900x600/?mountains"
           alt="green iguana"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Credit cards
+          Climate-related Disclosures Report 2021
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Market leader in the credit card community. with a rich catalogue to choose from.
+          Details our progress in 2021 on our climate ambitions including an overview of our approach to climate-related governance, strategy (including scenario analysis), risk management, metrics and targets.
           </Typography>
         </CardContent>
       </CardActionArea>
     </Card>    
     </div>
 
-    <div className="col-12 col-md-9 col-lg-6 col-xl-3">
+    <div className="col-12 col-md-6 col-lg-4 col-xl-3">
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
         <CardMedia
           component="img"
           height="140"
-          image="https://source.unsplash.com/900x600/?Home"
+          image="https://source.unsplash.com/900x600/?wild"
           alt="green iguana"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Home Loans
+          Environmental, Social and Governance (ESG) Supplement 2021
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Helping people to fulfill their dreams to buy a new Home.
+          Provides an overview of our purpose in action and key environmental, social and governance matters including progress in 2021.
           </Typography>
         </CardContent>
       </CardActionArea>
     </Card>    
     </div>
 
-    <div className="col-12 col-md-9 col-lg-6 col-xl-3">
+    <div className="col-12 col-md-6 col-lg-4 col-xl-3">
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
         <CardMedia
@@ -170,10 +198,10 @@ export default function ActionAreaCard() {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Legacy
+          We have four strategic priorities...
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            A rich legacy of high royal service. with modern technology and old royal grace.
+          We are a relationship bank for a digital world. Our strategy for growth delivers on our purpose and drives sustainable returns to shareholders through four strategic priorities:
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -181,6 +209,97 @@ export default function ActionAreaCard() {
     </div>
 
     </div>
+
+
+
+    <div className="row">
+            <div className="col-12 col-md-6 col-lg-4 col-xl-3">
+    <Card sx={{ maxWidth: 345 }}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="140"
+          image="https://source.unsplash.com/900x600/?trees"
+          alt="green iguana"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Clean Air
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Clean Air is essential part of our life. we have been planting 10,000 trees per year so our new generation can breathe clean air.
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>    
+    </div>
+
+    <div className="col-12 col-md-6 col-lg-4 col-xl-3">
+    <Card sx={{ maxWidth: 345 }}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="140"
+          image="https://source.unsplash.com/900x600/?snow"
+          alt="green iguana"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Global Warming
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            We have been working with some of the NGOs to curb the global warming by re cycling the office waste.
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>    
+    </div>
+
+    <div className="col-12 col-md-6 col-lg-4 col-xl-3">
+    <Card sx={{ maxWidth: 345 }}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="140"
+          image="https://source.unsplash.com/900x600/?charity"
+          alt="green iguana"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Charity
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            We give 5% of our profit to various charity groups as our commintment to the community.
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>    
+    </div>
+
+    <div className="col-12 col-md-6 col-lg-4 col-xl-3">
+    <Card sx={{ maxWidth: 345 }}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="140"
+          image="https://source.unsplash.com/900x600/?money"
+          alt="green iguana"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Currency
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Helping out UK Government in mintin new coins and printing new currency notes.
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>    
+    </div>
+
+    </div>
+
+
     </div>
   );
 }

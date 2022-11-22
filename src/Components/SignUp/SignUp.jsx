@@ -16,6 +16,7 @@ import './SignUp.css'
 import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik'
 import * as yup from 'yup'
+import SimpleSnackbar from '../SnackBar/Snackbar';
 
 const theme = createTheme();
 
@@ -75,7 +76,7 @@ const formik = useFormik({
 
         phone: yup.string()
             .required("Phone cannot be left blank")
-            .matches(/^[6-9][0-9]{9}$/,"Only numbers are allowed for mobile number field starting with 6 to 9"),
+            .matches(/^[6-9][0-9]{9}$/,"Please enter 10 digit valid mobile number only"),
 
         age: yup.string()
             .required("Age cannot be left blank")
@@ -245,13 +246,14 @@ const formik = useFormik({
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              style={{backgroundColor:"#A32AE1"}}
             //   sx={{ mt: 3, mb: 2 }} onClick={() => customMe()}
             >
               Sign Up
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/login" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>

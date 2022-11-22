@@ -23,7 +23,7 @@ export default function Header() {
         
         <nav class="navbar navbar-expand-lg bg-light user-navbar fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand img-fluid" href="/"><img src="./assets/nw logo.png" alt=""/>
+                <a class="navbar-brand img-fluid" href="/"><img src="./assets/nwlogo.png" alt=""/>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -45,6 +45,9 @@ export default function Header() {
                         <li class="nav-item">
                             <Link class="nav-link active" to="/aboutus">About Us</Link>
                         </li>
+                        <li class="nav-item">
+                            <Link class="nav-link active" to="/services">Services</Link>
+                        </li>
 
                         </>
 
@@ -65,12 +68,10 @@ export default function Header() {
             {localStorage.getItem('jwt_token') ?
         <div class="dropdown">
           <button class="btn dropdown-toggle" id="user-details-on-header" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {username.firstname}
+            {username.email}
           </button>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/login" onClick={logout}>Logout</a></li>
-            {/* <li><a class="dropdown-item" href="/">Profile</a></li> */}
-
           </ul>
         </div>
         :null
