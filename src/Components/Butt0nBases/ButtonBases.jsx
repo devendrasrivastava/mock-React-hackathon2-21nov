@@ -3,12 +3,11 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
-import FloatingActionButtonExtendedSize from '../Floatingbuttons/FloatingButtons';
 
 
 const images = [
   {
-    url: 'https://source.unsplash.com/900x600/?momey,technology',
+    url: 'https://source.unsplash.com/900x600/?laptop',
     title: 'Digital',
     width: '33%',
   },
@@ -90,7 +89,7 @@ const ImageMarked = styled('span')(({ theme }) => ({
 
 export default function ButtonBases() {
   return (
-    <div className="container my4">
+    <div className="container">
       {/* <FloatingActionButtonExtendedSize/> */}
       {/* <FloatingActionButtonExtendedSize/> */}
       <br />

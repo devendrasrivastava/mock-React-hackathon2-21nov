@@ -16,10 +16,41 @@ import './LoginPage.css'
 import {useFormik} from 'formik'
 import * as yup from 'yup'
 import { useNavigate } from "react-router-dom";
+import Stack from '@mui/material/Stack';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+
 
 const theme = createTheme();
 
+
+
+
+const Alert = React.forwardRef(function Alert(props, ref) {         //added for snackbar
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
+
+
+
+
+
 export default function SignInSide() {
+
+
+
+  const [open, setOpen] = React.useState(false);   //added for snackbar
+  const handleClick = () => {}
+  const handleClose = (event, reason) => {
+      if (reason === 'clickaway') {
+          return;
+      }
+      setOpen(false);
+  };
+
+
+
+
     const navigate = useNavigate();
     const formik=useFormik({
         initialValues:{
@@ -47,7 +78,7 @@ export default function SignInSide() {
                
             }
             else{
-              alert("invalid credentials")
+              setOpen(true);              
             }
         })
         },
@@ -124,24 +155,27 @@ export default function SignInSide() {
                 autoComplete="current-password"
               />
               {formik.errors.password && formik.touched.password? <span className='text-danger'>{formik.errors.password}</span>:null}                                   
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-                style={{backgroundColor:"#A32AE1"}}
-              >
-                Sign In
-              </Button>
+              
+              
               <Grid container>
                 <Grid item xs>
                   <Link href="/signup" variant="body2">
                     Forgot password?
-                  </Link>
+                  </Link> <Stack spacing={2} sx={{ width: '100%' }}>
+                                    <Button
+                                        sx={{ mt: 3, mb: 2 }}
+                                        type="submit"
+                                        variant="contained"
+                                        onClick={handleClick}>
+                                        Sign In
+                                    </Button>
+                                    <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={3000} onClose={handleClose}>
+                                        <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+                                        You have entered an invalid username or password !
+                                        </Alert>
+                                    </Snackbar>
+                                </Stack>
+                                
                 </Grid>
                 <Grid item>
                   <Link href="/signup" variant="body2">

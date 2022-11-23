@@ -12,9 +12,12 @@ import ActionAreaCard from './Components/AboutUs/AboutUs';
 import SignInSide from './Components/LoginPage/SignInSide';
 
 
+
+
 function App() {
   return (
     <div>
+      
       <BrowserRouter>
         {/* <ResponsiveAppBar /> */}
         <Header/>
@@ -29,6 +32,9 @@ function App() {
         {/* <StickyFooter /> */}
         
         {/* <Footer/> */}
+        
+        
+        
         <MuiFooter/>
       </BrowserRouter>
 
