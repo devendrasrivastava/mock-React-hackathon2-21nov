@@ -4,7 +4,6 @@ import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -23,10 +22,7 @@ import Stack from '@mui/material/Stack';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 
-
-
 const theme = createTheme();
-
 
 
 const Alert = React.forwardRef(function Alert(props, ref) {                 // 1 added for snack bar
@@ -34,26 +30,20 @@ const Alert = React.forwardRef(function Alert(props, ref) {                 // 1
 });
 
 
-
-
 export default function SignUp() {
 
 
-
   const [open, setOpen] = React.useState(false);   //2 added for snack bars
-    const handleClick = () => {}
-    const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
-        setOpen(false);
-    };
-
-
+  const handleClick = () => { }
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
+  };
 
 
   const navigate = useNavigate();
-
   const formik = useFormik({
     initialValues: {
       firstname: "",
@@ -81,11 +71,11 @@ export default function SignUp() {
 
 
           // 3 for snackbar
-          if(data.status === 200){
+          if (data.status === 200) {
             navigate("/login")
             // alert("You have Successfully registered")
           }
-          else{
+          else {
             setOpen(true)
           }
 
@@ -127,11 +117,16 @@ export default function SignUp() {
       age: yup.string()
         .required("Age cannot be left blank")
         .matches(/^[0-9]{1,2}$/, "Please enter valid Age"),
+        
+        // age: yup.string()
+        // .required("DoB cannot be left blank")
+        // .matches(/^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/, "Please enter valid Age"),
 
+     
       password: yup.string()
         .required("Password cannot be left blank")
         .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/, "password must be between 6 to 20 characters which contain at least one numeric digit, one uppercase and one lowercase letter."),
-      
+
       confirmpassword: yup.string()
         .required("Confirm Password cannot be left blank")
         .test("confirmpassword", "Password and Confirm password should be same", function (cpass) {
@@ -147,14 +142,14 @@ export default function SignUp() {
 
   return (
     <div className="container user-signup">
-      
+
       <div className="row">
-      <div className="col-12 col-md-6">
+        <div className="col-12 col-md-6">
           <ActionAreaCard1 />
 
         </div>
         <div className="col-12 col-md-6">
-        
+
           <ThemeProvider theme={theme}>
             <Container component="main" maxWidth="xs">
               <CssBaseline />
@@ -175,16 +170,16 @@ export default function SignUp() {
                 <Box component="form" noValidate onSubmit={formik.handleSubmit} sx={{ mt: 3 }}>
                   <Grid container spacing={2}>
                     <Grid item xs={12}>
-                      <TextField
+                      <TextField 
                         onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.firstname}
-
+                        
                         name="firstname"
                         required
                         fullWidth
                         id="firstname"
                         label="First Name"
                         type="text"
-                        autoFocus
+                        autoFocus   
                       />
                       {formik.errors.firstname && formik.touched.firstname ? <span className='text-danger'>{formik.errors.firstname}</span> : null}
 
@@ -223,8 +218,8 @@ export default function SignUp() {
                         required
                         fullWidth
                         id="age"
-                        label="Age"
-                        type="text"
+                        label="age"
+                        type="number"
                         name="age"
 
                       />
@@ -291,21 +286,21 @@ export default function SignUp() {
 
 
                   <Stack spacing={2} sx={{ width: '100%' }}>
-                  <Button
-                    type="submit"
-                    fullWidth
-                    variant="contained"
-                    sx={{ mt: 3, mb: 2 }}
-                    style={{ backgroundColor: "#A32AE1" }}
+                    <Button
+                      type="submit"
+                      fullWidth
+                      variant="contained"
+                      sx={{ mt: 3, mb: 2 }}
+                      style={{ backgroundColor: "#A32AE1" }}
                     >
-                    Sign Up
-                  </Button>
-                  <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={3000} onClose={handleClose}>
-                                        <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
-                                        Email address already exist !
-                                        </Alert>
-                                    </Snackbar>
-                                    </Stack>
+                      Sign Up
+                    </Button>
+                    <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={open} autoHideDuration={3000} onClose={handleClose}>
+                      <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+                        Email address already exist !
+                      </Alert>
+                    </Snackbar>
+                  </Stack>
 
 
                   <Grid container justifyContent="flex-start">
@@ -320,7 +315,7 @@ export default function SignUp() {
             </Container>
           </ThemeProvider>
         </div>
-        
+
       </div>
     </div>
   );

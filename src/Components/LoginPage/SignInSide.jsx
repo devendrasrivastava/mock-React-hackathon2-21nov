@@ -159,7 +159,7 @@ export default function SignInSide() {
               
               <Grid container>
                 <Grid item xs>
-                  <Link href="/signup" variant="body2">
+                  <Link href="/forgetpassword" variant="body2">
                     Forgot password?
                   </Link> <Stack spacing={2} sx={{ width: '100%' }}>
                                     <Button

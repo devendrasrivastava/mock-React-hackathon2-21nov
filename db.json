@@ -1,0 +1,19 @@
+{
+  "Register": [
+    {
+      "email": "clarke@ca.com",
+      "password": "123456",
+      "id": 1
+    },
+    {
+      "email": "ponting@ca.com",
+      "password": "sdfdsf1",
+      "id": 2
+    },
+    {
+      "email": "stark@marvel.com",
+      "password": "ldldld",
+      "id": 3
+    }
+  ]
+}

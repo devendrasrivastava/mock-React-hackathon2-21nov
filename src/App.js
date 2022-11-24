@@ -10,6 +10,7 @@ import Services from './Components/Services/Services';
 import MuiFooter from './Components/Footer/Footer';
 import ActionAreaCard from './Components/AboutUs/AboutUs';
 import SignInSide from './Components/LoginPage/SignInSide';
+import Register from './Components/ForgetPassword/ForgetPassword';
 
 
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/login" element={<SignInSide />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/forgetpassword" element={<Register />} />
         </Routes>
         {/* <StickyFooter /> */}
         
