@@ -138,6 +138,9 @@ export default function SignUp() {
     })
   })
 
+  const handleChange = (e) => {
+    e.preventDefault();
+  };
 
 
   return (
@@ -264,6 +267,8 @@ export default function SignUp() {
                         label="New Password"
                         type="password"
                         id="password"
+                        onCopy={handleChange}
+                        onPaste={handleChange}
 
                       />
                       {formik.errors.password && formik.touched.password ? <span className='text-danger'>{formik.errors.password}</span> : null}
@@ -278,6 +283,8 @@ export default function SignUp() {
                         label="Confirm Password"
                         type="password"
                         id="confirmpassword"
+                        onCopy={handleChange}
+                        onPaste={handleChange}
 
                       />
                       {formik.errors.confirmpassword && formik.touched.confirmpassword ? <span className='text-danger'>{formik.errors.confirmpassword}</span> : null}
@@ -291,7 +298,7 @@ export default function SignUp() {
                       fullWidth
                       variant="contained"
                       sx={{ mt: 3, mb: 2 }}
-                      style={{ backgroundColor: "#A32AE1" }}
+                      style={{ backgroundColor: "#42145F" }}
                     >
                       Sign Up
                     </Button>

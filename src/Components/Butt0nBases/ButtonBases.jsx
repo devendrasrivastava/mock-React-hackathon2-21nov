@@ -46,20 +46,20 @@ const ImageButton = styled(ButtonBase)(({ theme }) => ({
 
 const ImageSrc = styled('span')({
   position: 'absolute',
-  left: 0,
-  right: 0,
-  top: 0,
-  bottom: 0,
+  left: 1,
+  right: 1,
+  top: 1,
+  bottom: 1,
   backgroundSize: 'cover',
   backgroundPosition: 'center 40%',
 });
 
 const Image = styled('span')(({ theme }) => ({
   position: 'absolute',
-  left: 0,
-  right: 0,
-  top: 0,
-  bottom: 0,
+  left: 1,
+  right: 1,
+  top: 1,
+  bottom: 1,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -68,10 +68,10 @@ const Image = styled('span')(({ theme }) => ({
 
 const ImageBackdrop = styled('span')(({ theme }) => ({
   position: 'absolute',
-  left: 0,
-  right: 0,
-  top: 0,
-  bottom: 0,
+  left: 1,
+  right: 1,
+  top: 1,
+  bottom: 1,
   backgroundColor: theme.palette.common.black,
   opacity: 0.4,
   transition: theme.transitions.create('opacity'),
@@ -90,8 +90,6 @@ const ImageMarked = styled('span')(({ theme }) => ({
 export default function ButtonBases() {
   return (
     <div className="container">
-      {/* <FloatingActionButtonExtendedSize/> */}
-      {/* <FloatingActionButtonExtendedSize/> */}
       <br />
       <br />
     <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: 300, width: '100%' }}>

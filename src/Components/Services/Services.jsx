@@ -12,7 +12,6 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
-import TitlebarImageList from '../ImageList/ImageList';
 import { useNavigate } from "react-router-dom";
 import {useEffect} from 'react'
 import './Services.css'
@@ -79,6 +78,51 @@ function PricingContent() {
 
 
   return (
+    <>
+{/* info card starts */}
+
+<div class="container my-4 user-card-row">
+        <div class="row featurette d-flex justify-content-center align-items-center">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading fw-normal lh-1">World Leader in Digital Banking. <span class="text-muted">Best in the World!</span></h2>
+                <p class="lead">Our fast and secure Internet Banking is rated among the best in the world.</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+
+                <img src="https://source.unsplash.com/500x500/?laptop" alt="" class="img-fluid img-thumbnail"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row featurette d-flex justify-content-center align-items-center">
+            <div class="col-md-7">
+                <h2 class="featurette-heading fw-normal lh-1">Serving you since 1968. <span class="text-muted">Best services with branches all over the world.</span></h2>
+                <p class="lead">Our service has been among the best in the world thoughout our lifetime. we have some of the most talented staff with makes us stand out in the crowd.</p>
+            </div>
+            <div class="col-md-5">
+            
+                <img src="https://source.unsplash.com/500x500/?money" alt="" class="img-fluid img-thumbnail"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row featurette d-flex justify-content-center align-items-center">
+            <div class="col-md-7 order-md-1">
+                <h2 class="featurette-heading fw-normal lh-1">Explore our products and services. <span class="text-muted">Check out our sevices section for more.</span></h2>
+                <p class="lead">Available to existing NatWest current account, credit card, mortgage or savings customers who are UK residents.</p>
+            </div>
+            <div class="col-md-5">
+                <img src="https://source.unsplash.com/500x500/?desktop" alt="" class="img-fluid img-thumbnail"/>
+            </div>
+        </div>
+    </div>
+
+
+{/* info card ends  */}
+
+
     <div className="container user-services">
     <React.Fragment>
       <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
@@ -98,7 +142,6 @@ function PricingContent() {
         <Typography variant="h5" align="center" color="text.secondary" component="p">
         How our services are running and updates on planned maintenance
         </Typography>
-        <TitlebarImageList/>
       </Container>
       
       <div className="container">
@@ -173,6 +216,7 @@ function PricingContent() {
       </Container>
     </React.Fragment>
     </div>
+    </>
   );
 }
 

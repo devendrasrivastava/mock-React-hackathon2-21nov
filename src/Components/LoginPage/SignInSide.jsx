@@ -19,11 +19,17 @@ import { useNavigate } from "react-router-dom";
 import Stack from '@mui/material/Stack';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import IconButton from "@mui/material/IconButton";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import InputLabel from "@mui/material/InputLabel";
+import InputAdornment from "@mui/material/InputAdornment";
+import FormControl from "@mui/material/FormControl";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { WidthNormal } from '@mui/icons-material';
 
 
 const theme = createTheme();
-
-
 
 
 const Alert = React.forwardRef(function Alert(props, ref) {         //added for snackbar
@@ -31,11 +37,25 @@ const Alert = React.forwardRef(function Alert(props, ref) {         //added for 
 });
 
 
-
-
-
-
 export default function SignInSide() {
+
+  const [values, setValues] = React.useState({
+    password: "",
+    showPassword: false
+  });
+  const handleChange1 = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+  const handleClickShowPassword = () => {
+    setValues({
+      ...values,
+      showPassword: !values.showPassword
+    });
+  };
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
 
 
 
@@ -47,8 +67,6 @@ export default function SignInSide() {
       }
       setOpen(false);
   };
-
-
 
 
     const navigate = useNavigate();
@@ -91,6 +109,10 @@ export default function SignInSide() {
             
         })
     })
+
+    const handleChange = (e) => {
+      e.preventDefault();
+    };
 
 
   return (
@@ -142,7 +164,7 @@ export default function SignInSide() {
                 autoFocus
               />
               {formik.errors.email && formik.touched.email? <span className='text-danger'>{formik.errors.email}</span>:null}
-              <TextField
+              {/* <TextField
               onChange={formik.handleChange} onBlur={formik.handleBlur} 
               value={formik.values.password}
                 margin="normal"
@@ -153,7 +175,38 @@ export default function SignInSide() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-              />
+                onCopy={handleChange}
+                        onPaste={handleChange}
+              /> */}
+
+{/* width: "25ch" } */}
+<FormControl sx={{ m: 1 }} variant="outlined" onChange={formik.handleChange} onBlur={formik.handleBlur} 
+              value={formik.values.password}>
+          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+          <OutlinedInput
+            id="password"
+            onCopy={handleChange}
+            onPaste={handleChange}
+            type={values.showPassword ? "text" : "password"}
+            value={values.password}
+            onChange={handleChange1("password")}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                  edge="end"
+                  // margin="normal"
+                  // fullWidth
+                >
+                  {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            }
+            label="Password"
+          />
+        </FormControl>
               {formik.errors.password && formik.touched.password? <span className='text-danger'>{formik.errors.password}</span>:null}                                   
               
               
@@ -163,7 +216,7 @@ export default function SignInSide() {
                     Forgot password?
                   </Link> <Stack spacing={2} sx={{ width: '100%' }}>
                                     <Button
-                                        sx={{ mt: 3, mb: 2 }}
+                                        sx={{ mt: 3, mb: 2 , backgroundColor:"#42145F" }}
                                         type="submit"
                                         variant="contained"
                                         onClick={handleClick}>

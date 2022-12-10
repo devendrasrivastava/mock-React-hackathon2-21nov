@@ -1,12 +1,8 @@
 import React from 'react';
 import './ForgetPassword.css'
-
 import { useState } from 'react';
-// import { useHistory } from 'react-router-dom';
+
 export default function Register() {
-   // use history and use state for redirecting and setting data
-//    const history = useHistory()
-//    const [username, setUserName] = useState('')
    const [email, setEmail] = useState('')
    const [password, setPassword] = useState('')
    const [confirmpassword, setConfirmPassword] = useState('')
@@ -14,10 +10,8 @@ export default function Register() {
    // vallidation used
    const PasswordHandeller = () => {
       var cout = 0;
-    //   if (username == "") {
-    //      document.getElementById("msg").innerHTML = "UserName Can't be Empty";
-    //   }
-    if (email === "") {
+
+      if (email === "") {
          document.getElementById("msg").innerHTML = "Email Can't be Empty";
       }
       else if (password === "") {
@@ -26,9 +20,9 @@ export default function Register() {
       else if (confirmpassword === "") {
          document.getElementById("msg").innerHTML = "Confirm Password Can't be Empty";
       }
-    //   else if (password.length <= 6) {
-    //      document.getElementById("msg").innerHTML = "Password is too Small";
-    //   }
+      else if (password.length <= 6) {
+         document.getElementById("msg").innerHTML = "Password is too Small";
+      }
       else {
          // password entered should be same as confirmed password and fetching from json server
          if (password === confirmpassword) {
@@ -37,37 +31,37 @@ export default function Register() {
                .then(data => {
                   data.map(item => {
 
-                    console.log(item.email);
-                    console.log(item.password);
+                     console.log(item.email);
+                     console.log(item.password);
 
                      if (item.email === email) {
                         cout = cout + 1;
                         fetch(`http://localhost:3001/Register/${item.id}`, {
-                            method: "PUT",
-                            headers: {
-                               "Content-Type": "application/json",
-                            },
-                            body: JSON.stringify({ email, password }),
-                         })
-                            .then((res) => {
-                               return res.json();
-                            })
-                            .then((data) => {
-                               console.log(data);
-                            })
-                            .catch(err => console.error(err))
+                           method: "PUT",
+                           headers: {
+                              "Content-Type": "application/json",
+                           },
+                           body: JSON.stringify({ email, password }),
+                        })
+                           .then((res) => {
+                              return res.json();
+                           })
+                           .then((data) => {
+                              console.log(data);
+                           })
+                           .catch(err => console.error(err))
                      }
                   })
-                  
+
                   // if user is registered then password will be updated otherwise not
                   if (cout === 0) {
-                    document.getElementById("msg").innerHTML = "Not a Registered User !";
+                     document.getElementById("msg").innerHTML = "Not a Registered User !";
                   }
                   else {
-                    document.getElementById("msg").innerHTML = "Password Updated Successfully !";
+                     document.getElementById("msg").innerHTML = "Password Updated Successfully !";
                   }
                })
-            .catch(err => console.error(err)) 
+               .catch(err => console.error(err))
          }
          else {
             document.getElementById("msg").innerHTML = "password and Confirm Password not Matched";
@@ -76,16 +70,17 @@ export default function Register() {
    }
    return (
       <>
-         
+
          {/* ui part of the forget password */}
          <div className="container-fluid user-forget-password">
             <div className="row">
                <div className="col-sm-12 md-6 col-lg-6 mt-4">
-                  <img src="https://www.ouinolanguages.com/new/wp-content/uploads/2017/09/ques15.jpg" style={{width:'100%'}}/>
+                  <img src="./assets/forgo.jpeg" style={{ width: '100%' }} className="img-fluid" />
                </div>
                <div className="col-sm-12 md-6 col-lg-5">
-                  <h1 className="mb-2 mt-4">Reset Password</h1>
-                  
+                  {/* <h1 className="mb-2 mt-4">Reset Password</h1> */}
+                  <img src="./assets/nwlogo.png" alt="" className='img-fluid' id="nwlogo" />
+
                   <div className="mb-2" id="msg" style={{ color: 'red' }}>
 
                   </div>
@@ -94,19 +89,33 @@ export default function Register() {
                      <input type="text" id="user" className="form-control" onChange={(e) => setUserName(e.target.value)} placeholder="UserName" />
                   </div> */}
                   <div className="mb-2">
-                     <label>e-mail</label>
-                     <input type="email" id="email" className="form-control" onChange={(e) => setEmail(e.target.value)} placeholder="email" />
+                     <label class="visually-hidden" for="autoSizingInputGroup">Username</label>
+                     <div class="input-group">
+                        <div class="input-group-text"><i class="fa-solid fa-envelope-circle-check"></i></div>
+                        <input type="email" id="email" className="form-control" onChange={(e) => setEmail(e.target.value)} placeholder="email" />
+                     </div>
                   </div>
+
                   <div className="mb-2">
-                     <label>Password</label>
-                     <input type="password" id="pass" className="form-control" onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
+                     <label class="visually-hidden" for="autoSizingInputGroup">Username</label>
+                     <div class="input-group">
+                        <div class="input-group-text"><i class="fa-solid fa-key"></i></div>
+                        <input type="password" id="pass" className="form-control" onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
+                     </div>
                   </div>
+
+
                   <div className="mb-4">
-                     <label>Re-Enter Password</label>
-                     <input type="password" id="confirm" className="form-control" onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm Password" />
+
+                     <label class="visually-hidden" for="autoSizingInputGroup">Username</label>
+                     <div class="input-group">
+                        <div class="input-group-text"><i class="fa-solid fa-key"></i></div>
+                        <input type="password" id="confirm" className="form-control" onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm Password" />
+                     </div>
                   </div>
+
                   <div className="mb-2">
-                      <button id="forgetPass" className="btn btn-info col-12" onClick={PasswordHandeller}>Reset Password</button>
+                     <button id="forgetPass" className="btn btn-info col-12" onClick={PasswordHandeller}>Reset Password</button>
                   </div>
                </div>
             </div>

@@ -20,8 +20,8 @@ function App() {
     <div>
       
       <BrowserRouter>
-        {/* <ResponsiveAppBar /> */}
-        <Header/>
+        <ResponsiveAppBar />
+        {/* <Header/> */}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/aboutus" element={<ActionAreaCard />} />
