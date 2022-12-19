@@ -1,7 +1,18 @@
+
 import React from 'react'
+import Timer from '../../Timer'
 import './BSFooter.css'
 
+
+
+  //timer ends
+
+
 export default function Footer() {
+
+  
+
+
   return (
     <div>
 
@@ -10,6 +21,9 @@ export default function Footer() {
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-6">
+
+          
+
             <h6>About</h6>
             <p class="text-justify"><i>NatWest Group</i> is a relationship bank for a digital world. We champion potential; breaking down barriers and building financial confidence so the 19 million people, families and businesses we serve in communities throughout the UK and Ireland can rebuild and thrive. If our customers succeed, so will we.</p>
           </div>
@@ -27,6 +41,9 @@ export default function Footer() {
           </div>
 
           <div class="col-xs-6 col-md-3">
+         
+          
+
             <h6>Quick Links</h6>
             <ul class="footer-links">
               <li><a href="http://scanfcode.com/about/">

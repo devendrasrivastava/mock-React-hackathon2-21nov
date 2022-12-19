@@ -2,13 +2,19 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './BSHeader.css'
 import { useNavigate } from "react-router-dom";
+import { Timer } from '@mui/icons-material';
+import Timer1 from '../../Timer';
+
+
 
 export default function Header() {
 
   const username = JSON.parse(localStorage.getItem('userName'));
   // console.log(username)
 
+
   const navigate = useNavigate();
+
 
   function logout() {
     // localStorage.removeItem('jwt_token');
@@ -17,6 +23,11 @@ export default function Header() {
     navigate("/registraion")
   }
 
+  
+  if(localStorage.getItem('jwt_token')){  
+  setTimeout(logout, 60000)
+  // navigate("/")
+  }
 
   return (
     <div>
@@ -48,6 +59,8 @@ export default function Header() {
                     <li class="nav-item">
                       <Link class="nav-link active" to="/services">Services</Link>
                     </li>
+<Timer1/>
+                     
 
                   </>
 
