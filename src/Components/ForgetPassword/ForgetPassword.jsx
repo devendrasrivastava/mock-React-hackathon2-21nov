@@ -1,11 +1,17 @@
 import React from 'react';
 import './ForgetPassword.css'
 import { useState } from 'react';
+import { MDBInput } from 'mdb-react-ui-kit';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Register() {
+   
    const [email, setEmail] = useState('')
    const [password, setPassword] = useState('')
    const [confirmpassword, setConfirmPassword] = useState('')
+
+   const navigate = useNavigate();
 
    // vallidation used
    const PasswordHandeller = () => {
@@ -84,36 +90,19 @@ export default function Register() {
                   <div className="mb-2" id="msg" style={{ color: 'red' }}>
 
                   </div>
-                  {/* <div className="mb-2">
-                     <label>UserName</label>
-                     <input type="text" id="user" className="form-control" onChange={(e) => setUserName(e.target.value)} placeholder="UserName" />
-                  </div> */}
                   <div className="mb-2">
-                     <label class="visually-hidden" for="autoSizingInputGroup">Username</label>
-                     <div class="input-group">
-                        <div class="input-group-text"><i class="fa-solid fa-envelope-circle-check"></i></div>
-                        <input type="email" id="email" className="form-control" onChange={(e) => setEmail(e.target.value)} placeholder="email" />
-                     </div>
+                     <MDBInput label='Enter Your Email' id='email' type='text' className="form-control user-text" onChange={(e) => setEmail(e.target.value)} />
                   </div>
 
                   <div className="mb-2">
-                     <label class="visually-hidden" for="autoSizingInputGroup">Username</label>
-                     <div class="input-group">
-                        <div class="input-group-text"><i class="fa-solid fa-key"></i></div>
-                        <input type="password" id="pass" className="form-control" onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
-                     </div>
+                  <MDBInput label='Password' id='pass' type='password' className="form-control user-text" onChange={(e) => setPassword(e.target.value)}/>
                   </div>
 
 
                   <div className="mb-4">
 
-                     <label class="visually-hidden" for="autoSizingInputGroup">Username</label>
-                     <div class="input-group">
-                        <div class="input-group-text"><i class="fa-solid fa-key"></i></div>
-                        <input type="password" id="confirm" className="form-control" onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm Password" />
-                     </div>
                   </div>
-
+                  <MDBInput label='Confirm Password' id='confirm' type='password' className="form-control user-text" onChange={(e) => setConfirmPassword(e.target.value)} />
                   <div className="mb-2">
                      <button id="forgetPass" className="btn btn-info col-12" onClick={PasswordHandeller}>Reset Password</button>
                   </div>

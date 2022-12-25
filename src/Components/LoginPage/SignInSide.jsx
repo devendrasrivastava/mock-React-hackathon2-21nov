@@ -180,11 +180,14 @@ export default function SignInSide() {
               /> */}
 
 {/* width: "25ch" } */}
-<FormControl sx={{ m: 1 }} variant="outlined" onChange={formik.handleChange} onBlur={formik.handleBlur} 
+<FormControl sx={{ mt: 1, width:'50ch' }} variant="outlined" onChange={formik.handleChange} onBlur={formik.handleBlur} 
               value={formik.values.password}>
           <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
           <OutlinedInput
             id="password"
+            required
+            fullWidth
+
             onCopy={handleChange}
             onPaste={handleChange}
             type={values.showPassword ? "text" : "password"}
