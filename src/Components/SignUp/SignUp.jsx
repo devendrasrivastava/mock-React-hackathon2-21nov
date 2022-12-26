@@ -46,14 +46,15 @@ export default function SignUp() {
     confirmpassword: "",
     showPassword: false
   });
-  
-  const handleChange2 = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
 
   const handleChange1 = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
+
+  const handleChange2 = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+
   const handleClickShowPassword = () => {
     setValues({
       ...values,
@@ -293,26 +294,11 @@ export default function SignUp() {
                       {formik.errors.email && formik.touched.email ? <span className='text-danger'>{formik.errors.email}</span> : null}
                     </Grid>
 
-                    {/* <Grid item xs={12}>
-                      <TextField
-                        onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.password}
-                        required
-                        fullWidth
-                        name="password"
-                        label="New Password"
-                        type="password"
-                        id="password"
-                        onCopy={handleChange}
-                        onPaste={handleChange}
-
-                      />
-                      {formik.errors.password && formik.touched.password ? <span className='text-danger'>{formik.errors.password}</span> : null}
-                    </Grid> */}
-
+                  
 
 
 <Grid item xs={12}>
-<FormControl sx={{ mt: 1, width:'45ch' }} variant="outlined" onChange={formik.handleChange} onBlur={formik.handleBlur} 
+<FormControl fullWidth sx={{ mt: 1}} variant="outlined" onChange={formik.handleChange} onBlur={formik.handleBlur} 
               value={formik.values.password}>
           <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
           <OutlinedInput
@@ -347,24 +333,9 @@ export default function SignUp() {
 
 
 
-                    {/* <Grid item xs={12}>
-                      <TextField
-                        onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.confirmpassword}
-                        required
-                        fullWidth
-                        name="confirmpassword"
-                        label="Confirm Password"
-                        type="password"
-                        id="confirmpassword"
-                        onCopy={handleChange}
-                        onPaste={handleChange}
-
-                      />
-                      {formik.errors.confirmpassword && formik.touched.confirmpassword ? <span className='text-danger'>{formik.errors.confirmpassword}</span> : null}
-                    </Grid> */}
-
+                
 <Grid item xs={12}>
-<FormControl sx={{ mt: 1, width:'45ch' }} variant="outlined" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.confirmpassword}>
+<FormControl fullWidth sx={{ mt: 1}} variant="outlined" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.confirmpassword}>
           <InputLabel htmlFor="outlined-adornment-password">Confirm Password</InputLabel>
           <OutlinedInput
             id="confirmpassword"
