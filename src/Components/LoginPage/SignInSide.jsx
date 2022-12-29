@@ -165,9 +165,9 @@ export default function SignInSide() {
                 />
                 {formik.errors.email && formik.touched.email ? <span className='text-danger'>{formik.errors.email}</span> : null}
 
-                <FormControl fullWidth sx={{ mt: 1}} >
-                <InputLabel htmlFor="outlined-adornment-password" variant="outlined" onChange={formik.handleChange} onBlur={formik.handleBlur}
-                  value={formik.values.password}>Password</InputLabel>
+                <FormControl fullWidth sx={{ mt: 1}} onChange={formik.handleChange} onBlur={formik.handleBlur}
+                  value={formik.values.password}>
+                <InputLabel htmlFor="outlined-adornment-password" variant="outlined">Password</InputLabel>
                 <OutlinedInput
                   id="password"
                   required
