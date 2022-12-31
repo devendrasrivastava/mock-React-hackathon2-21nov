@@ -23,10 +23,10 @@ export default function Header() {
     navigate("/registraion")
   }
 
-  
-  if(localStorage.getItem('jwt_token')){  
-  setTimeout(logout, 60000)
-  // navigate("/")
+
+  if (localStorage.getItem('jwt_token')) {
+    setTimeout(logout, 60000)
+    // navigate("/")
   }
 
   return (
@@ -59,8 +59,8 @@ export default function Header() {
                     <li class="nav-item">
                       <Link class="nav-link active" to="/services">Services</Link>
                     </li>
-<Timer1/>
-                     
+                    <Timer1 />
+
 
                   </>
 
@@ -75,20 +75,20 @@ export default function Header() {
                   </>
               }
             </ul>
-          
 
-        {localStorage.getItem('jwt_token') ?
-          <div class="dropdown">
-            <button class="btn dropdown-toggle" id="user-details-on-header" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              {username.email}
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/login" onClick={logout}>Logout</a></li>
-            </ul>
+
+            {localStorage.getItem('jwt_token') ?
+              <div class="dropdown">
+                <button class="btn dropdown-toggle" id="user-details-on-header" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  {username.email}
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/login" onClick={logout}>Logout</a></li>
+                </ul>
+              </div>
+              : null
+            }
           </div>
-          : null
-        }
-</div>
         </div>
 
       </nav>
